@@ -17,8 +17,8 @@ spotify.search({ type: 'track', query: 'All the Small Things' }, function (err, 
     if (err) {
         return console.log('Error occurred: ' + err);
     }
-    // console.log(util.inspect(data, {showHidden: false, depth: null}));
-    console.log(data);
+    // console.log(util.inspect(data.tracks, {showHidden: false, depth: null}));
+    console.log(data.tracks.items[0].album.artists);
 });
 
 //create a variable to read files package from node
