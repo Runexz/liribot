@@ -1,6 +1,10 @@
 
 require("dotenv").config();
 
+// var util = require("util");
+
+var omdb = require("omdb")
+
 var keys = require("./keys.js");
 
 //pulls spotify id and keys
@@ -13,6 +17,7 @@ spotify.search({ type: 'track', query: 'All the Small Things' }, function (err, 
     if (err) {
         return console.log('Error occurred: ' + err);
     }
+    // console.log(util.inspect(data, {showHidden: false, depth: null}));
     console.log(data);
 });
 
