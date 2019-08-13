@@ -49,6 +49,7 @@ var command = process.argv[2];
 // need to grab 4th text on the command line and loop through it to make it a usable if result is "All the Small Things"
 var options = "";
 
+//create a function to loop through the array after [2]
 function processOptions() {
     
     optionsArray = process.argv;
