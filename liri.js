@@ -61,6 +61,7 @@ function processOptions() {
     return options;
 }
 
+//switch is the if/else for all the commands to liri
 switch (command) {
     case "spotify-this-song":
 
