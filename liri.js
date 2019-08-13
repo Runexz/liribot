@@ -41,3 +41,42 @@ fs.readFile("random.txt", "utf8", function (error, data) {
     console.log(dataArr);
 
 });
+
+//grabs the third text on the command line ex: concert-this, spotify-this-song, etc.
+var command = process.argv[2];
+// console.log("This is what was typed after liri.js " + command);
+
+// need to grab 4th text on the command line and loop through it to make it a usable if result is "All the Small Things"
+var options = "";
+
+function processOptions() {
+    
+    optionsArray = process.argv;
+
+    for (var i = 3; i <optionsArray.length; i++) {
+        options += optionsArray[i];
+    }
+
+    return options;
+}
+
+switch (command) {
+    case "spotify-this-song":
+
+        break;
+
+    case "movie-this":
+
+        break;
+
+    case "do-what-it-says":
+
+        break;
+
+    case "concert-this":
+
+        break;
+
+    default:
+        break;
+}
