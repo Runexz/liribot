@@ -12,6 +12,21 @@ var keys = require("./keys.js");
 var bandsIT = keys.bandsInTown.id;
 console.log(bandsIT);
 
+
+axios.get('https://rest.bandsintown.com/artists/korn/events?app_id=' + bandsIT + '&date=upcoming')
+  .then(function (response) {
+    // handle success
+    console.log(response.data);
+  })
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+  })
+  .finally(function () {
+    // always executed
+  });
+
+
 //pulls spotify npm id and keys
 var Spotify = require("node-spotify-api");
 
@@ -84,7 +99,6 @@ switch (command) {
 
     case "concert-this":
 
-        // https://rest.bandsintown.com/artists/korn/events?app_id=&date=upcoming
         break;
 
     default:
