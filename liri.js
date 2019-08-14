@@ -7,7 +7,10 @@ var omdb = require("omdb")
 
 var keys = require("./keys.js");
 
-//pulls spotify id and keys
+var bandsIT = keys.bandsInTown.id;
+console.log(bandsIT);
+
+//pulls spotify npm id and keys
 var Spotify = require("node-spotify-api");
 
 var spotify = new Spotify(keys.spotify);
@@ -18,7 +21,9 @@ spotify.search({ type: 'track', query: 'All the Small Things' }, function (err, 
         return console.log('Error occurred: ' + err);
     }
     // console.log(util.inspect(data.tracks, {showHidden: false, depth: null}));
-    console.log(data.tracks.items[0].album.artists);
+    // console.log(data.tracks.items[0].artists[0].name);
+    console.log(data.tracks.items[0].album.name);
+    // console.log(JSON.stringify(data.tracks.items[0].album.name, null, 2));
 });
 
 //create a variable to read files package from node
@@ -32,13 +37,13 @@ fs.readFile("random.txt", "utf8", function (error, data) {
     }
 
     // We will then print the contents of data
-    console.log(data);
+    // console.log(data);
 
     // Then split it by commas (to make it more readable)
     var dataArr = data.split(",");
 
     // We will then re-display the content as an array for later use.
-    console.log(dataArr);
+    // console.log(dataArr);
 
 });
 
@@ -77,6 +82,7 @@ switch (command) {
 
     case "concert-this":
 
+        // https://rest.bandsintown.com/artists/korn/events?app_id=&date=upcoming
         break;
 
     default:
