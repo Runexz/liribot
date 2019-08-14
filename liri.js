@@ -1,6 +1,8 @@
 
 require("dotenv").config();
 
+var axios = require('axios');
+
 // var util = require("util");
 
 var omdb = require("omdb")
