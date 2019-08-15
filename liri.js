@@ -52,23 +52,7 @@ var options = process.argv[3].split(" ").join("+");
 
         case "do-what-it-says":
 
-            // fs.readFile("random.txt", "utf8", function (error, data) {
-
-            //     // If the code experiences any errors it will log the error to the console.
-            //     if (error) {
-            //         return console.log(error);
-            //     }
-
-            //     // We will then print the contents of data
-            //     // console.log(data);
-
-            //     // Then split it by commas (to make it more readable)
-            //     var dataArr = data.split(",");
-
-            //     // We will then re-display the content as an array for later use.
-            //     // console.log(dataArr);
-
-            // });
+            
             break;
 
         case "concert-this":
@@ -137,3 +121,23 @@ spotify.lookup({ type: 'track', query: '3DYVWvPh3kGwPasp7yjahc' }, function (err
     // console.log(JSON.stringify(data.tracks.items[0].album.name, null, 2));
 });
 };
+
+function whatItSay() {
+    fs.readFile("random.txt", "utf8", function (error, data) {
+
+                // If the code experiences any errors it will log the error to the console.
+                if (error) {
+                    return console.log(error);
+                }
+
+                // We will then print the contents of data
+                // console.log(data);
+
+                // Then split it by commas (to make it more readable)
+                var dataArr = data.split(",");
+
+                // We will then re-display the content as an array for later use.
+                console.log(dataArr);
+
+            });
+}
