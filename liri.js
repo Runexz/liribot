@@ -40,7 +40,7 @@ options = process.argv[3].split(" ").join("+");
             var songString = options;
 
         if(songString === ""){
-            staticSong();
+            songinfo("The Sign ace of base");
         }
         else{
                 songinfo(songString);
@@ -131,19 +131,19 @@ function songinfo(songString) {
     });
 };
 
-function staticSong() {
-spotify.lookup({ type: 'track', query: '3DYVWvPh3kGwPasp7yjahc' }, function (err, data) {
-    if (err) {
-        return console.log('Error occurred: ' + err);
-    }
-    // console.log(util.inspect(data.tracks, {showHidden: false, depth: null}));
-    console.log("Song name: " + data.tracks.items[0].name);
-    console.log("Artist name: " + data.tracks.items[0].artists[0].name);
-    console.log("Album name: " + data.tracks.items[0].album.name);
-    console.log("Preview link of the song on Spotify: " + data.tracks.items[0].external_urls.spotify)
-    // console.log(JSON.stringify(data.tracks.items[0].album.name, null, 2));
-});
-};
+// function staticSong() {
+// spotify.search({ type: 'track', query: "The Sign ace of base" }, function (err, data) {
+//     if (err) {
+//         return console.log('Error occurred: ' + err);
+//     }
+//     // console.log(util.inspect(data.tracks, {showHidden: false, depth: null}));
+//     console.log("Song name: " + data.tracks.items[0].name);
+//     console.log("Artist name: " + data.tracks.items[0].artists[0].name);
+//     console.log("Album name: " + data.tracks.items[0].album.name);
+//     console.log("Preview link of the song on Spotify: " + data.tracks.items[0].external_urls.spotify)
+//     // console.log(JSON.stringify(data.tracks.items[0].album.name, null, 2));
+// });
+// };
 
 // function whatItSay() {
 //     fs.readFile("random.txt", "utf8", function (error, data) {
