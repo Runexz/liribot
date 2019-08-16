@@ -50,6 +50,25 @@ options = process.argv[3].split(" ").join("+");
 
         case "movie-this":
 
+            var movieName = options;
+
+            axios.get('https://rest.bandsintown.com/artists/' + artistName + '/events?app_id=' + bandsIT + '&date=upcoming')
+                .then(function (response) {
+                    // handle success
+                    console.log(response.data);
+                    // console.log(response.data[0].venue.name);
+                    // console.log(response.data[0].venue.city);
+                    // console.log(response.data[0].venue.region);
+                    // console.log(response.data[0].datetime)
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                })
+                .finally(function () {
+                    // always executed
+                });
+
             break;
 
         case "do-what-it-says":
