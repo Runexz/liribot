@@ -3,9 +3,6 @@ require("dotenv").config();
 
 var axios = require('axios');
 
-// var util = require("util");
-
-var omdb = require("omdb")
 
 var keys = require("./keys.js");
 
@@ -26,11 +23,6 @@ if (process.argv[3]) {
     // need to grab 4th text on the command line and loop through it to make it a usable if result is "All the Small Things"
     options = process.argv[3].split(" ").join("+");
 };
-// runThings(command, options);
-
-// function runThings(command, options) {
-
-//     options = processOptions();
 
 //switch is the if/else for all the commands to liri
 switch (command) {
@@ -97,10 +89,6 @@ switch (command) {
 
     case "do-what-it-says":
 
-        // var whatTheyChoose = options;
-
-        // console.log(whatItSay());
-
         fs.readFile("random.txt", "utf8", function (error, data) {
 
             // If the code experiences any errors it will log the error to the console.
@@ -149,18 +137,7 @@ switch (command) {
     default:
         break;
 };
-// };
-//create a function to loop through the array after [2]
-// function processOptions() {
 
-//     optionsArray = process.argv;
-
-//     for (var i = 3; i < optionsArray.length; i++) {
-//         options += optionsArray[i];
-//     }
-
-//     return options;
-// }
 
 function songinfo(songString) {
 
@@ -178,37 +155,3 @@ function songinfo(songString) {
         // console.log(JSON.stringify(data.tracks.items[0].album.name, null, 2));
     });
 };
-
-// function staticSong() {
-// spotify.search({ type: 'track', query: "The Sign ace of base" }, function (err, data) {
-//     if (err) {
-//         return console.log('Error occurred: ' + err);
-//     }
-//     // console.log(util.inspect(data.tracks, {showHidden: false, depth: null}));
-//     console.log("Song name: " + data.tracks.items[0].name);
-//     console.log("Artist name: " + data.tracks.items[0].artists[0].name);
-//     console.log("Album name: " + data.tracks.items[0].album.name);
-//     console.log("Preview link of the song on Spotify: " + data.tracks.items[0].external_urls.spotify)
-//     // console.log(JSON.stringify(data.tracks.items[0].album.name, null, 2));
-// });
-// };
-
-// function whatItSay() {
-//     fs.readFile("random.txt", "utf8", function (error, data) {
-
-//                 // If the code experiences any errors it will log the error to the console.
-//                 if (error) {
-//                     return console.log(error);
-//                 }
-
-//                 // We will then print the contents of data
-//                 console.log(data);
-
-//                 // Then split it by commas (to make it more readable)
-//                 var dataArr = data.split(",");
-
-//                 // We will then re-display the content as an array for later use.
-//                 console.log(dataArr);
-
-//             });
-// }
