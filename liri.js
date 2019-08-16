@@ -23,36 +23,59 @@ var command = process.argv[2];
 
 var options = "";
 if (process.argv[3]) {
-// need to grab 4th text on the command line and loop through it to make it a usable if result is "All the Small Things"
-options = process.argv[3].split(" ").join("+");
+    // need to grab 4th text on the command line and loop through it to make it a usable if result is "All the Small Things"
+    options = process.argv[3].split(" ").join("+");
 };
 // runThings(command, options);
 
 // function runThings(command, options) {
-    
-    //     options = processOptions();
-    
-    //switch is the if/else for all the commands to liri
-    switch (command) {
-        
-        case "spotify-this-song":
 
-            var songString = options;
+//     options = processOptions();
 
-        if(songString === ""){
+//switch is the if/else for all the commands to liri
+switch (command) {
+
+    case "spotify-this-song":
+
+        var songString = options;
+
+        if (songString === "") {
             songinfo("The Sign ace of base");
         }
-        else{
-                songinfo(songString);
-            }
+        else {
+            songinfo(songString);
+        }
 
-            break;
+        break;
 
-        case "movie-this":
+    case "movie-this":
 
-            var movieName = options;
+        var movieName = options;
 
-            axios.get('https://rest.bandsintown.com/artists/' + artistName + '/events?app_id=' + bandsIT + '&date=upcoming')
+        var omdbThis = keys.omdbKey.id;
+
+        if (movieName === "") {
+            axios.get('https://www.omdbapi.com/?t=Mr+Nobody&apikey=' + omdbThis)
+                .then(function (response) {
+                    // handle success
+                    console.log(response.data);
+                    console.log("If you haven't watched Mr. Nobody, then you should: http//www.imdb.com/title/tt0485947");
+                    console.log("It's on Netflix!");
+                    // console.log(response.data[0].venue.name);
+                    // console.log(response.data[0].venue.city);
+                    // console.log(response.data[0].venue.region);
+                    // console.log(response.data[0].datetime)
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                })
+                .finally(function () {
+                    // always executed
+                });
+
+        } else {
+            axios.get('https://www.omdbapi.com/?t=' + movieName + '&apikey=' + omdbThis)
                 .then(function (response) {
                     // handle success
                     console.log(response.data);
@@ -68,63 +91,64 @@ options = process.argv[3].split(" ").join("+");
                 .finally(function () {
                     // always executed
                 });
+        }
 
-            break;
+        break;
 
-        case "do-what-it-says":
+    case "do-what-it-says":
 
-            // var whatTheyChoose = options;
+        // var whatTheyChoose = options;
 
-            // console.log(whatItSay());
-            
-            fs.readFile("random.txt", "utf8", function (error, data) {
+        // console.log(whatItSay());
 
-                // If the code experiences any errors it will log the error to the console.
-                if (error) {
-                    return console.log(error);
-                }
+        fs.readFile("random.txt", "utf8", function (error, data) {
 
-                // We will then print the contents of data
-                console.log(data);
+            // If the code experiences any errors it will log the error to the console.
+            if (error) {
+                return console.log(error);
+            }
 
-                // Then split it by commas (to make it more readable)
-                var dataArr = data.split(",");
+            // We will then print the contents of data
+            console.log(data);
 
-                // We will then re-display the content as an array for later use.
-                console.log(dataArr);
+            // Then split it by commas (to make it more readable)
+            var dataArr = data.split(",");
 
+            // We will then re-display the content as an array for later use.
+            console.log(dataArr);
+
+        });
+
+        break;
+
+    case "concert-this":
+
+        var artistName = options;
+        var bandsIT = keys.bandsInTown.id;
+        // console.log(bandsIT);
+
+
+        axios.get('https://rest.bandsintown.com/artists/' + artistName + '/events?app_id=' + bandsIT + '&date=upcoming')
+            .then(function (response) {
+                // handle success
+                // console.log(response.data);
+                console.log(response.data[0].venue.name);
+                console.log(response.data[0].venue.city);
+                console.log(response.data[0].venue.region);
+                console.log(response.data[0].datetime)
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+            .finally(function () {
+                // always executed
             });
+        break;
 
-            break;
-
-        case "concert-this":
-
-            var artistName = options;
-            var bandsIT = keys.bandsInTown.id;
-            // console.log(bandsIT);
-
-
-            axios.get('https://rest.bandsintown.com/artists/' + artistName + '/events?app_id=' + bandsIT + '&date=upcoming')
-                .then(function (response) {
-                    // handle success
-                    // console.log(response.data);
-                    console.log(response.data[0].venue.name);
-                    console.log(response.data[0].venue.city);
-                    console.log(response.data[0].venue.region);
-                    console.log(response.data[0].datetime)
-                })
-                .catch(function (error) {
-                    // handle error
-                    console.log(error);
-                })
-                .finally(function () {
-                    // always executed
-                });
-            break;
-
-        default:
-            break;
-    };
+    default:
+        break;
+};
 // };
 //create a function to loop through the array after [2]
 // function processOptions() {
@@ -139,7 +163,7 @@ options = process.argv[3].split(" ").join("+");
 // }
 
 function songinfo(songString) {
-    
+
     // searches the spotify database
     spotify.search({ type: 'track', query: songString }, function (err, data) {
         if (err) {
