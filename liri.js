@@ -120,10 +120,10 @@ switch (command) {
             .then(function (response) {
                 // handle success
                 // console.log(response.data);
-                console.log(response.data[0].venue.name);
-                console.log(response.data[0].venue.city);
-                console.log(response.data[0].venue.region);
-                console.log(response.data[0].datetime)
+                console.log("Name of venue: " + response.data[0].venue.name);
+                console.log("Venue location city: " + response.data[0].venue.city);
+                console.log("Venue location state: " + response.data[0].venue.region);
+                console.log("Date of the Event: " + response.data[0].datetime)
             })
             .catch(function (error) {
                 // handle error
