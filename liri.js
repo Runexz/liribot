@@ -80,22 +80,27 @@ options = process.argv[3].split(" ").join("+");
 
         case "concert-this":
 
-            // var bandsIT = keys.bandsInTown.id;
+            var artistName = options;
+            var bandsIT = keys.bandsInTown.id;
             // console.log(bandsIT);
 
 
-            // axios.get('https://rest.bandsintown.com/artists/korn/events?app_id=' + bandsIT + '&date=upcoming')
-            //     .then(function (response) {
-            //         // handle success
-            //         console.log(response.data);
-            //     })
-            //     .catch(function (error) {
-            //         // handle error
-            //         console.log(error);
-            //     })
-            //     .finally(function () {
-            //         // always executed
-            //     });
+            axios.get('https://rest.bandsintown.com/artists/' + artistName + '/events?app_id=' + bandsIT + '&date=upcoming')
+                .then(function (response) {
+                    // handle success
+                    // console.log(response.data);
+                    console.log(response.data[0].venue.name);
+                    console.log(response.data[0].venue.city);
+                    console.log(response.data[0].venue.region);
+                    console.log(response.data[0].datetime)
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                })
+                .finally(function () {
+                    // always executed
+                });
             break;
 
         default:
