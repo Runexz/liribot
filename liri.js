@@ -156,11 +156,13 @@ function songinfo(songString) {
         if (err) {
             return console.log('Error occurred: ' + err);
         }
+        // for (var i = 0; i < response.data.length; i++) {
         // console.log(util.inspect(data.tracks, {showHidden: false, depth: null}));
         console.log("Song name: " + data.tracks.items[0].name);
         console.log("Artist name: " + data.tracks.items[0].artists[0].name);
         console.log("Album name: " + data.tracks.items[0].album.name);
         console.log("Preview link of the song on Spotify: " + data.tracks.items[0].external_urls.spotify)
+        // };
         // console.log(data.tracks.items)
         // console.log(JSON.stringify(data.tracks.items[0].album.name, null, 2));
     });
