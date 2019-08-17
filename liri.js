@@ -1,6 +1,9 @@
 //npm dotenv reads .env file
 require("dotenv").config();
 
+//npm moment loader
+var moment = require('moment');
+
 //npm axios loader
 var axios = require('axios');
 
@@ -126,7 +129,7 @@ switch (command) {
                     console.log("Name of venue: " + response.data[i].venue.name);
                 console.log("Venue location city: " + response.data[i].venue.city);
                 console.log("Venue location state: " + response.data[i].venue.region);
-                console.log("Date of the Event: " + response.data[i].datetime)
+                console.log("Date of the Event: " + moment(response.data[i].datetime).format('MMMM Do YYYY, h:mm:ss a'))
                 console.log("\n");
                     
                 }
