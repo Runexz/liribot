@@ -1,15 +1,15 @@
-
+//npm dotenv reads .env file
 require("dotenv").config();
 
+//npm axios loader
 var axios = require('axios');
 
-
+//retrieve information from keys.js
 var keys = require("./keys.js");
 
 //pulls spotify npm id and keys
 var Spotify = require("node-spotify-api");
 var spotify = new Spotify(keys.spotify);
-
 
 //create a variable to read files package from node
 var fs = require("fs");
@@ -18,6 +18,7 @@ var fs = require("fs");
 var command = process.argv[2];
 // console.log("This is what was typed after liri.js " + command);
 
+//grabs the 4th text on the command line starts off as nothing
 var options = "";
 if (process.argv[3]) {
     // need to grab 4th text on the command line and loop through it to make it a usable if result is "All the Small Things"
@@ -139,7 +140,7 @@ switch (command) {
         break;
 };
 
-
+//Function to search for the song in spotify
 function songinfo(songString) {
 
     // searches the spotify database
