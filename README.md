@@ -24,7 +24,7 @@ Type **node liri.js concert-this "artist/band name here"** on the command line a
 * Venue location State
 * Date of the Event
 
-![gif of working concert-this](https://drive.google.com/open?id=1ME2jXw9--cr76KwSRpU6lSk5lYbf11kc)
+![gif of working concert-this]<https://drive.google.com/open?id=1ME2jXw9--cr76KwSRpU6lSk5lYbf11kc)>
 
 ### spotify-this-song
 Type **node liri.js spotify-this-song "song name here"** on the command line and **LIRI** will search the _Spotify API_ for the following information and display it on the terminal:
