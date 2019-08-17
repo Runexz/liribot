@@ -35,6 +35,8 @@ Type **node liri.js spotify-this-song "song name here"** on the command line and
 
 If no song name is entered then the default response will be the song _The Sign_ by **Ace of Base**.
 
+[Example of spotify-this-song](https://drive.google.com/file/d/1ME2jXw9--cr76KwSRpU6lSk5lYbf11kc/view?usp=sharing)
+
 ### movie-this
 Type **node liri.js movie-this "movie name here"** on the command line and  **LIRI** will search the _OMDB API_  for the following information and display it on the terminal:
 * Title of the movie
@@ -48,5 +50,9 @@ Type **node liri.js movie-this "movie name here"** on the command line and  **LI
 
 If no movie name is entered then the default response will be the movie _Mr. Nobody_.
 
+[Example of movie-this](https://drive.google.com/file/d/1VEgDyRwMvEdcv-395cwIoWkgnWC3Ru1N/view?usp=sharing)
+
 ### do-what-it-says
 Type **node liri.js do-what-it-says** on the command line and **LIRI** will search a _random.txt_ file that contains a song name that **LIRI** will use **spotify-this-song** to locate the song information and display it on the terminal.
+
+[Example of do-what-it-says](https://drive.google.com/file/d/1NBUlUxXvYHYtWzaIRVTOGfTBi4NDLcw6/view?usp=sharing)
