@@ -122,10 +122,15 @@ switch (command) {
             .then(function (response) {
                 // handle success
                 // console.log(response.data);
-                console.log("Name of venue: " + response.data[0].venue.name);
-                console.log("Venue location city: " + response.data[0].venue.city);
-                console.log("Venue location state: " + response.data[0].venue.region);
-                console.log("Date of the Event: " + response.data[0].datetime)
+                for (var i = 0; i < response.data.length; i++) {
+                    console.log("Name of venue: " + response.data[i].venue.name);
+                console.log("Venue location city: " + response.data[i].venue.city);
+                console.log("Venue location state: " + response.data[i].venue.region);
+                console.log("Date of the Event: " + response.data[i].datetime)
+                console.log("\n");
+                    
+                }
+                
             })
             .catch(function (error) {
                 // handle error
