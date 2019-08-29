@@ -56,3 +56,5 @@ If no movie name is entered then the default response will be the movie _Mr. Nob
 Type **node liri.js do-what-it-says** on the command line and **LIRI** will search a _random.txt_ file that contains a song name that **LIRI** will use **spotify-this-song** to locate the song information and display it on the terminal.
 
 [Example of do-what-it-says](https://drive.google.com/file/d/1NBUlUxXvYHYtWzaIRVTOGfTBi4NDLcw6/view?usp=sharing)
+
+[See Liri bot in action](https://drive.google.com/file/d/1aODK7YQExycCR-xPx6S0SXM-ZRO2EQ-E/view?usp=sharing)
